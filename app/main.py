@@ -44,7 +44,3 @@ def parse_certificate(domain: str) -> List[Any]:
         return "fail"
     data = certigo_result
     return data
-
-
-if __name__ == "__main__":
-    app.run(port=5000)
