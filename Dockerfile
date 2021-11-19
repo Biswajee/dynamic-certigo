@@ -4,7 +4,7 @@ RUN go install github.com/square/certigo@latest
 
 FROM python:3.9
 # Set the working directory
-WORKDIR /home/dynamic-certigo
+WORKDIR /
 # Copy all the files
 COPY . .
 # Install the dependencies
@@ -14,4 +14,4 @@ RUN pip3 install -r requirements.txt
 # Expose the required port
 EXPOSE 5000
 # Run the command
-CMD gunicorn main:app
+CMD python3 wsgi.py
