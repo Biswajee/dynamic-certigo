@@ -4,7 +4,7 @@ RUN go install github.com/square/certigo@latest
 
 FROM python:3.9
 # Set the working directory
-WORKDIR /
+WORKDIR /home/dynamic-certigo
 # Copy all the files
 COPY . .
 # Install the dependencies
