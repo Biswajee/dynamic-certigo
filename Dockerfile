@@ -1,6 +1,6 @@
 FROM golang:1.16
 WORKDIR /
-RUN go install github.com/square/certigo
+RUN go install github.com/square/certigo@latest
 
 FROM python:3.9
 # Set the working directory
