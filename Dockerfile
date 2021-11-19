@@ -11,6 +11,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 # Copy all the files
 COPY . .
+RUN chown -R root:root .
 # Install the dependencies
 RUN apt-get -y update
 RUN apt-get update && apt-get install -y python3 python3-pip
@@ -18,4 +19,4 @@ RUN pip3 install -r requirements.txt
 # Expose the required port
 EXPOSE 80
 # Run the command
-CMD python3 wsgi.py
+CMD python3 wsgi.py &
