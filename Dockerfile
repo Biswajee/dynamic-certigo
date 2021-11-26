@@ -13,6 +13,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 # Set GOPATH as PATH
 ENV PATH=$GOPATH/bin:$PATH
+RUN ls -l $GOPATH/bin
 RUN certigo --version
 # Copy all the files
 COPY . .
