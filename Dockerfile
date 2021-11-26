@@ -21,4 +21,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Expose the required port
 EXPOSE 8080
 # Run the command
-CMD ["gunicorn", "-b", "0.0.0.0:$PORT", "wsgi:app"]
+CMD ["gunicorn", "wsgi:app"]
