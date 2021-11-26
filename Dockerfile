@@ -2,8 +2,8 @@ FROM golang:1.16
 WORKDIR /
 ENV GOPATH /home/gowork
 RUN go install github.com/square/certigo@latest
-RUN go env GOPATH
-RUN certigo --version
+RUN ls -l $GOPATH
+RUN $GOPATH/certigo --version
 
 FROM python:3.9
 # Set the working directory

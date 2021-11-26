@@ -24,9 +24,9 @@ jobs:
         run: docker build -t dynamic-certigo .
 
       # deploy the app on heroku container registry
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "somethingwentwrong"
-          heroku_email: "devbiswajitroy@gmail.com"
-          usedocker: true
+      # - uses: akhileshns/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_app_name: "somethingwentwrong"
+      #     heroku_email: "devbiswajitroy@gmail.com"
+      #     usedocker: true
