@@ -11,7 +11,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
 # copy the prepared binary to current bin folder
-COPY from=certigo-build /home/gowork/bin/certigo /usr/local/bin/
+COPY --from=certigo-build /home/gowork/bin/certigo /usr/local/bin/
 # execute the certigo command to see if the copy was successful
 RUN certigo --version
 # Copy all the files
