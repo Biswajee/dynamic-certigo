@@ -47,17 +47,8 @@ class DomainParser:
             else:
                 response.set_certificate_data(certigo_result)
 
-        except (FileNotFoundError, JSONDecodeError, URLValidationError) as err:
+        except (FileNotFoundError, JSONDecodeError) as err:
             self.set_error_message(err)
 
         finally:
             return response
-
-
-class URLValidationError(Exception):
-    """
-    URLValidationError error is raised when the supplied url does not match a domain pattern
-    """
-
-    def __init__(self):
-        pass

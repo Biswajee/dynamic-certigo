@@ -17,5 +17,5 @@ def index() -> str:
 
 
 @app.route("/health")
-def health():
+def health() -> str:
     return CustomResponse().get_json()
