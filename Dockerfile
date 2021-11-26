@@ -12,8 +12,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
 # Set GOPATH as PATH
-ENV PATH=$GOPATH/bin:$PATH
-RUN ls -l $GOPATH/bin
+ENV PATH=/home/gowork/bin:$PATH
+RUN ls -l /home/gowork/bin
 RUN certigo --version
 # Copy all the files
 COPY . .
