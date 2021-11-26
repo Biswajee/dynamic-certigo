@@ -9,6 +9,8 @@ WORKDIR /home/dynamic-certigo
 ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
+# Set port environment inside container
+ENV PORT 8080
 # Copy all the files
 COPY . .
 RUN chown -R root:root .
