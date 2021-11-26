@@ -1,5 +1,6 @@
 FROM golang:1.16
 WORKDIR /
+ENV GOPATH /home/gowork
 RUN go install github.com/square/certigo@latest
 
 FROM python:3.9
@@ -10,7 +11,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
 # Set port environment inside container
-ENV PORT 8080
+RUN export PATH='$GOPATH:$PATH'
 # Copy all the files
 COPY . .
 RUN chown -R root:root .
