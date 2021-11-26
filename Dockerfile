@@ -11,7 +11,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
 # Set GOPATH as PATH
-RUN export PATH='$GOPATH:$PATH'
+ENV PATH='$GOPATH:$PATH'
 # Copy all the files
 COPY . .
 RUN chown -R root:root .
