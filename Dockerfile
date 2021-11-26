@@ -1,8 +1,7 @@
-FROM golang:1.16
+FROM golang:1.16 AS certigo-build
 WORKDIR /
 ENV GOPATH /home/gowork
 RUN go install github.com/square/certigo@latest
-RUN ls -l $GOPATH/bin
 
 FROM python:3.9
 # Set the working directory
@@ -11,9 +10,9 @@ WORKDIR /home/dynamic-certigo
 ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
-# Set GOPATH as PATH
-ENV PATH=/home/gowork/bin:$PATH
-RUN ls -l /home/gowork/bin
+# copy the prepared binary to current bin folder
+COPY from=certigo-build /home/gowork/bin/certigo /usr/local/bin/
+# execute the certigo command to see if the copy was successful
 RUN certigo --version
 # Copy all the files
 COPY . .
