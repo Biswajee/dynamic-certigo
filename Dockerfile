@@ -2,6 +2,7 @@ FROM golang:1.16
 WORKDIR /
 ENV GOPATH /home/gowork
 RUN go install github.com/square/certigo@latest
+RUN go env GOPATH
 RUN certigo --version
 
 FROM python:3.9
