@@ -1,7 +1,7 @@
 import multiprocessing
 from os import environ
 
-port = environ.get('PORT')
+port = environ.get("PORT")
 if port is None:
     bind = "0.0.0.0:8080"
 else:
