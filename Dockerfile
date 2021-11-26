@@ -2,8 +2,7 @@ FROM golang:1.16
 WORKDIR /
 ENV GOPATH /home/gowork
 RUN go install github.com/square/certigo@latest
-RUN ls -l $GOPATH
-RUN $GOPATH/certigo --version
+RUN ls -l $GOPATH/bin
 
 FROM python:3.9
 # Set the working directory
@@ -13,7 +12,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
 # Set GOPATH as PATH
-ENV PATH=/home/gowork:$PATH
+ENV PATH=$GOPATH/bin:$PATH
+RUN certigo --version
 # Copy all the files
 COPY . .
 RUN chown -R root:root .
